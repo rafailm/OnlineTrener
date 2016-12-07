@@ -1,0 +1,32 @@
+﻿@model OnlineTrener.ViewModels.VideoList
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<table class="table">
+    <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Aprooved</th>
+        <th>URL</th>
+    </tr>
+    @foreach (var v in Model.Videos)
+    {
+        <tr>
+            <td>@v.videoTitle</td>
+            <td>@v.videoDescription</td>
+            <td>@v.videoCategory</td>
+            <td>@v.IsAprooved</td>
+            <td>@v.videoURL</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { Id = v.videoId }) |
+                @Html.ActionLink("Delete", "Delete", new { Id = v.videoId })
+            </td>
+        </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>

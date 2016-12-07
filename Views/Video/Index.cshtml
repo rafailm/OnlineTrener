@@ -1,0 +1,22 @@
+﻿@model OnlineTrener.ViewModels.VideoList
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var v in Model.Videos)
+{
+    <h3>@v.videoTitle</h3>
+    <h4>@v.videoDescription</h4>
+    <h4>
+        <strong>@v.videoCategory</strong>
+    </h4>
+    <iframe width="420" height="345" src=@v.videoURL></iframe>
+}
+
+
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index",new { page = x, category = Model.CurrentCategory }))
+</div>
