@@ -10,6 +10,7 @@ using System.Net;
 
 namespace OnlineTrener.Controllers
 {
+    [Authorize(Roles ="admin")]
     public class AdminVideoController : Controller
     {
         VideoModel db = new VideoModel();
