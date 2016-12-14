@@ -12,7 +12,7 @@ namespace OnlineTrener.Controllers
 {
     public class VideoController : Controller
     {
-        VideoModel db = new VideoModel();
+        VideoContext db = new VideoContext();
         public int PageSize = 6;
 
         // GET: Video

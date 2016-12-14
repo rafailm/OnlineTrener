@@ -13,7 +13,7 @@ namespace OnlineTrener.Controllers
     [Authorize(Roles ="admin")]
     public class AdminVideoController : Controller
     {
-        VideoModel db = new VideoModel();
+        VideoContext db = new VideoContext();
         
         // GET: AdminVideo
         public ActionResult Index()

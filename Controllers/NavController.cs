@@ -9,7 +9,7 @@ namespace OnlineTrener.Controllers
 {
     public class NavController : Controller
     {
-        VideoModel db = new VideoModel();
+        VideoContext db = new VideoContext();
 
         public PartialViewResult Menu(string category = null)
         {

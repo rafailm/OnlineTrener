@@ -80,3 +80,6 @@ c:\users\riki\documents\visual studio 2015\Projects\OnlineTrener\OnlineTrener\bi
 c:\users\riki\documents\visual studio 2015\Projects\OnlineTrener\OnlineTrener\bin\Microsoft.AI.ServerTelemetryChannel.xml
 c:\users\riki\documents\visual studio 2015\Projects\OnlineTrener\OnlineTrener\bin\Microsoft.AI.Web.xml
 c:\users\riki\documents\visual studio 2015\Projects\OnlineTrener\OnlineTrener\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\Riki\documents\visual studio 2015\Projects\OnlineTrener\OnlineTrener\bin\BCrypt.Net.dll
+C:\Users\Riki\documents\visual studio 2015\Projects\OnlineTrener\OnlineTrener\bin\BCrypt.Net.pdb
+C:\Users\Riki\documents\visual studio 2015\Projects\OnlineTrener\OnlineTrener\bin\BCrypt.Net.xml
