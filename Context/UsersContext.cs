@@ -8,12 +8,14 @@ namespace OnlineTrener.Context
 
     public partial class UsersContext : DbContext
     {
-        public UsersContext()
-            : base("name=UsersContext")
-        {
-        }
 
+        public UsersContext()
+            : base("name=MainDb")
+        {
+
+        }
         public virtual DbSet<User> Users { get; set; }
+        //public virtual DbSet<Role> Roles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -28,8 +30,13 @@ namespace OnlineTrener.Context
             modelBuilder.Entity<User>()
                 .Property(e => e.password_hash)
                 .IsUnicode(false);
-        }
 
-        public System.Data.Entity.DbSet<OnlineTrener.Models.UserNew> UserNews { get; set; }
+            modelBuilder.Entity<User>().HasMany(u => u.Roles).WithMany().Map(m =>
+                   {
+                       m.ToTable("role_users");
+                       m.MapLeftKey("user_Id");
+                       m.MapRightKey("role_Id");
+                   });
+        }
     }
 }

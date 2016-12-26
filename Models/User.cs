@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OnlineTrener.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -24,6 +25,13 @@ namespace OnlineTrener.Models
         [StringLength(128)]
         public string password_hash { get; set; }
 
+        public virtual IList<Role> Roles { get; set; }
+
+        public User()
+        {
+            Roles = new List<Role>();
+        }
+
         public void SetPassword(string password)
         {
             password_hash = BCrypt.Net.BCrypt.HashPassword(password, 14);
@@ -33,5 +41,6 @@ namespace OnlineTrener.Models
             return BCrypt.Net.BCrypt.Verify(password, password_hash);
         }
 
+        
     }
 }

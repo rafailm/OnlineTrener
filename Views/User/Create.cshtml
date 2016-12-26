@@ -38,6 +38,25 @@
             </div>
         </div>
 
+        <div class="panel panel-default">
+            <div class="panel-heading">Roles</div>
+            <div class="panel-body">
+                <ul class="list-group">
+                    @for (var i = 0; i < Model.Roles.Count; i++)
+                    {
+                        <li class="list-group-item">
+                            @Html.Hidden("Roles[" + i + "].roleId", Model.Roles[i].roleId)
+                            <label for="Roles_@(i)__IsChecked">
+                            @Html.CheckBox("Roles[" + i + "].IsChecked", Model.Roles[i].IsChecked)
+                                @Model.Roles[i].roleName
+                            </label>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />

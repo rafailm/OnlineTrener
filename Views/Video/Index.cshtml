@@ -4,19 +4,27 @@
     ViewBag.Title = "Index";
 }
 
+
 <h2>Index</h2>
-
-@foreach (var v in Model.Videos)
-{
-    <h3>@v.videoTitle</h3>
-    <h4>@v.videoDescription</h4>
-    <h4>
-        <strong>@v.videoCategory</strong>
-    </h4>
-    <iframe width="420" height="345" src=@v.videoURL></iframe>
-}
+<div class="row panel">
+    <div id="categories" class="col-xs-3">
+        @Html.Action("Menu", "Nav")
+    </div>
+    <div style="margin-left:25%;padding:1px 16px;height:1000px;">
+        
 
 
-<div class="btn-group pull-right">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index",new { page = x, category = Model.CurrentCategory }))
+        @foreach (var v in Model.Videos)
+        {
+            <h3>Title: @v.videoTitle</h3>
+            <h4>Description: @v.videoDescription</h4>
+            <h4>
+                Category: <strong>@v.videoCategory</strong>
+            </h4>
+            <iframe width="420" height="345" src=@v.videoURL></iframe>
+        }
+        <br>
+        @Html.PageLinks(Model.PagingInfo, x => Url.Action("Index", new { page = x, category = Model.CurrentCategory }))
+       
+    </div>
 </div>

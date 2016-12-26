@@ -1,7 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using OnlineTrener.Context;
+using OnlineTrener.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 
 namespace OnlineTrener.Infrastructure
 {
@@ -9,15 +13,10 @@ namespace OnlineTrener.Infrastructure
     {
         public override string[] GetRolesForUser(string username)
         {
-            if (username == "brigji")
-            {
-                return new[] { "admin" };
-            }
-            else
-            {
-                return new string[] { };
-            }
+            
+            return Auth.User.Roles.Select(role => role.roleName).ToArray();
         }
+
         public override string ApplicationName
         {
             get

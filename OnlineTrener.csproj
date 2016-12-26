@@ -203,6 +203,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Auth.cs" />
+    <Compile Include="Context\RolesContext.cs" />
+    <Compile Include="Models\role_users.cs" />
+    <Compile Include="Context\UserRolesContext.cs" />
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Context\UsersContext.cs" />
     <Compile Include="Controllers\AdminVideoController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
@@ -219,6 +224,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PagingInfo.cs" />
+    <Compile Include="ViewModels\RoleList.cs" />
     <Compile Include="ViewModels\Users.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

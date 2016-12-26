@@ -32,7 +32,7 @@
             @Html.DisplayFor(modelItem => item.email)
         </td>
         <td>
-           TO DO
+           @string.Join(", ", item.Roles.Select(role=>role.roleName))
         </td>
        
         <td>
