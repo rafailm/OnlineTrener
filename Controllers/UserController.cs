@@ -20,6 +20,7 @@ namespace OnlineTrener.Controllers
         public int PageSize = 6;
 
         // GET: User
+        [Authorize(Roles = "admin")]
         public ActionResult Index(int page = 1)
         {
             UsersList model = new UsersList
@@ -40,8 +41,9 @@ namespace OnlineTrener.Controllers
             return View(model);
         }
 
-       
+
         // GET: User/Create
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             RolesContext rdb = new RolesContext();
@@ -56,7 +58,8 @@ namespace OnlineTrener.Controllers
         }
 
         // POST: User/Create
-        [HttpPost, ValidateAntiForgeryToken]
+        
+        [HttpPost, ValidateAntiForgeryToken, Authorize(Roles = "admin")]
         public ActionResult Create(UserNew form)
         {
             var user = new User();
@@ -86,6 +89,7 @@ namespace OnlineTrener.Controllers
         }
 
         // GET: User/Edit/5
+        [HttpGet, Authorize(Roles = "admin")]
         public ActionResult Edit(int id)
         {
             User user = db.Users.Find(id);
@@ -107,7 +111,7 @@ namespace OnlineTrener.Controllers
         }
 
         // POST: User/Edit/5
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost, ValidateAntiForgeryToken, Authorize(Roles = "admin")]
         public ActionResult Edit(int id, UserEdit form)
         {
 
@@ -130,7 +134,7 @@ namespace OnlineTrener.Controllers
             }
             return View(form);
         }
-        
+        [ValidateAntiForgeryToken, Authorize(Roles = "admin")]
         public ActionResult ResetPassword (int id)
         {
             if (id == null)
@@ -146,7 +150,7 @@ namespace OnlineTrener.Controllers
             return View(new UsersResetPassword { username = user.username });
         }
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken, Authorize(Roles = "admin")]
         public ActionResult ResetPassword(int id, UsersResetPassword form)
         {
             if (ModelState.IsValid)
@@ -160,7 +164,7 @@ namespace OnlineTrener.Controllers
             return View(form);
         }
 
-        [HttpGet]
+        [HttpGet,Authorize(Roles = "admin")]
         public ActionResult Delete(int id)
         {
 
@@ -174,6 +178,7 @@ namespace OnlineTrener.Controllers
         }
 
         [AcceptVerbs(HttpVerbs.Post), ValidateAntiForgeryToken]
+        [Authorize(Roles = "admin")]
         public ActionResult Delete (int id, string confirmButton)
         {
             User user = db.Users.Find(id);
